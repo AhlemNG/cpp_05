@@ -6,7 +6,7 @@
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 11:26:50 by anouri            #+#    #+#             */
-/*   Updated: 2024/03/14 16:46:01 by anouri           ###   ########.fr       */
+/*   Updated: 2024/03/19 16:01:54 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 
 int main()
 {
-    Bureaucrat A("moudir", 5);
+    Bureaucrat C("invalid", 170);
+    std::cout <<  "invalid : \n" << C << std::endl;
     std::cout << YELLOW << "*****************TEST*****************" << RESET << std::endl;
+    Bureaucrat A("moudir", 1);
+    
     std::cout << GRAY << "moudir : \n" << A << std::endl;
     
     A.promote();
