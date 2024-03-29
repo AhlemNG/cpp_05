@@ -25,9 +25,9 @@ private:
     int _grade;
 public:
     Bureaucrat();
-    ~Bureaucrat();
     Bureaucrat(std::string name, int grade);
     Bureaucrat(Bureaucrat const &src);
+    ~Bureaucrat();
     Bureaucrat &operator=(Bureaucrat const &rhs);
     std::string const getName() const;
     void gradeIsTooHigh();
