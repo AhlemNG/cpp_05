@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "../incs/Bureaucrat.hpp"
 #include <iostream>
 
 int main()
