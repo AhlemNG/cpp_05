@@ -11,7 +11,11 @@
 /* ************************************************************************** */
 
 #include "../incs/Bureaucrat.hpp"
-#include "../incs/Form.hpp"
+#include "../incs/AForm.hpp"
+#include "../incs/ShrubberyCreationForm.hpp"
+#include "../incs/RobotomyRequestForm.hpp"
+#include "../incs/PresidentialPardonForm.hpp"
+
 
 #include <iostream>
 
@@ -54,19 +58,20 @@ int main()
     Bureaucrat DRH("DRH", 4);
     Bureaucrat Archiviste("Archiviste", 10);
 
-    std::cout << YELLOW << "\n*****************invalid FORM*****************\n" << RESET << std::endl;
-    Form demission("demission",0, 0, 4);
-    Form attestationTravail("Attestation de travail",0, 4, 170);
+    // std::cout << YELLOW << "\n*****************invalid FORM*****************\n" << RESET << std::endl;
+    // Form demission("demission",0, 0, 4);
+    // Form attestationTravail("Attestation de travail",0, 4, 170);
 
-    std::cout << YELLOW << "\n*****************CONSTRUCTION*****************\n" << RESET << std::endl;
-    Form congé("congé",0, 5, 5);
-    Form congè(congé);
-    congè = congé;
-    std::cout << congé << std::endl;
-    std::cout << YELLOW << "\n*****************beSIgned*****************\n" << RESET << std::endl;
+    // std::cout << YELLOW << "\n*****************CONSTRUCTION*****************\n" << RESET << std::endl;
+    // Form congé("congé",0, 5, 5);
+    // Form congè(congé);
+    // std::cout << congé << std::endl;
+    // std::cout << YELLOW << "\n*****************beSIgned*****************\n" << RESET << std::endl;
 
-    congé.beSigned(Archiviste);
-    congé.beSigned(PDG);
-
+    // congé.beSigned(Archiviste);
+    // congé.beSigned(PDG);
+    ShrubberyCreationForm shrubbery("home");
+    // shrubbery.beSigned(PDG);
+    shrubbery.execute(PDG);
     return(0);
 }
