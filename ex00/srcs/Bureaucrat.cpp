@@ -6,14 +6,12 @@
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 11:26:55 by anouri            #+#    #+#             */
-/*   Updated: 2024/03/19 16:00:49 by anouri           ###   ########.fr       */
+/*   Updated: 2024/04/08 13:16:24 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Exceptions.hpp"
-#include <exception>
-Bureaucrat::Bureaucrat() : _name("no_name"), _grade(0)
+Bureaucrat::Bureaucrat() : _name("no_name"), _grade(1)
 {
     std::cout << BLUE << "Bureaucrat default constructor called" << RESET << std::endl;
 }
@@ -23,16 +21,14 @@ Bureaucrat::~Bureaucrat()
     std::cout << BLUE << "Bureaucrat destructor called" << RESET << std::endl;
 }
 
-
-
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
 {
     std::cout << BLUE << "Bureaucrat parametric constructor called for : " << this->_name << RESET << std::endl;
     try{
         if (grade > 150)
-            throw(GradeTooLowException());
+            throw(Bureaucrat::GradeTooLowException());
         if (grade < 1)
-            throw(GradeTooHighException());
+            throw(Bureaucrat::GradeTooHighException());
     _grade = grade;
     }catch(const std::exception & e){
         std::cerr << "Exception: " << e.what() << '\n';
@@ -61,28 +57,36 @@ int Bureaucrat::getGrade() const
     return(this->_grade);
 }
 
+const char *Bureaucrat::GradeTooHighException::what() const throw()
+{
+     return("Grade too high");
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+     return("Grade too low");
+}
+
 void Bureaucrat::promote()
 {
     try{
         if (_grade == 1)
-            throw(GradeTooHighException());
+            throw(Bureaucrat::GradeTooHighException());
         this->_grade--;
     }catch(const std::exception &e){
         std::cout << "Exception: " << e.what() << std::endl;
     }
-    // std::cout << GREEN << this->_name << " has been promoted" << RESET<< std::endl;
 }
 
 void Bureaucrat::demote()
 {
     try{
         if (_grade == 150)
-            throw(GradeTooLowException());
+            throw(Bureaucrat::GradeTooLowException());
         this->_grade++;
     }catch(const std::exception &e){
         std::cout << "Exception: " << e.what()<< std::endl;
     }
-    // std::cout << LRED << this->_name << " has been demoted" << RESET << std::endl;
 }
 
 std::ostream &operator<<(std::ostream & o, Bureaucrat const &rhs)

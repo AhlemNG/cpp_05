@@ -31,7 +31,12 @@ class AForm
             using exception::what; //is this allowed?
             const char *what() const throw();
         };
-
+        class NotvalidArgument : public std::exception
+        {
+            public:
+            using exception::what;
+            const char *what() const throw();
+        };
         void beSigned(Bureaucrat b);
         virtual void execute(Bureaucrat const & executor) const = 0;
         void checkExecRequirements(Bureaucrat const & executor) const;

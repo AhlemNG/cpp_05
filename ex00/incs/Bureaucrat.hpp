@@ -6,7 +6,7 @@
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 11:26:59 by anouri            #+#    #+#             */
-/*   Updated: 2024/03/14 16:53:03 by anouri           ###   ########.fr       */
+/*   Updated: 2024/04/08 13:11:43 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string>
+#include <exception>
 #include "Colors.hpp"
 
 class Bureaucrat
@@ -30,11 +31,22 @@ public:
     Bureaucrat(Bureaucrat const &src);
     Bureaucrat &operator=(Bureaucrat const &rhs);
     std::string const getName() const;
-    void gradeIsTooHigh();
-    void gradeIsTooLow();
     int getGrade() const;
     void promote();
     void demote();
+    class GradeTooHighException : public std::exception
+    {
+        public:
+        using exception::what; //is this allowed?
+        const char *what() const throw();
+    };
+
+    class GradeTooLowException : public std::exception
+    {
+        public:
+        using exception::what; //is this allowed?
+        const char *what()const throw();
+    };
 };
 
 std::ostream &operator<<(std::ostream & o,Bureaucrat const &rhs);

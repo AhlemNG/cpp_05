@@ -1,5 +1,4 @@
 #include "../incs/Form.hpp"
-#include "../incs/Exceptions.hpp"
 
 Form::Form() : _name("no_name"), _isSigned(0), _signGrade(0), _execGrade(0)
 {
@@ -11,13 +10,13 @@ Form::Form(const std::string name, bool isSigned, const int signGrade, const int
    std::cout << LBLUE << "Form parametric constructor called for: " << _name << std::endl;
     try{
         if (signGrade < 1)
-            throw(GradeTooHighException());
+            throw(Bureaucrat::GradeTooHighException());
         else if (signGrade > 150)
-            throw(GradeTooLowException());
+            throw(Bureaucrat::GradeTooLowException());
         if (execGrade < 1)
-            throw(GradeTooHighException());
+            throw(Bureaucrat::GradeTooHighException());
         else if (execGrade > 150)
-            throw(GradeTooLowException());
+            throw(Bureaucrat::GradeTooLowException());
     }catch(const std::exception &e)
     {
         std::cout << RED << "EXCEPTION: " << e.what() << RESET << std::endl;
@@ -69,12 +68,8 @@ std::ostream & operator<<(std::ostream & o, Form const &rhs)
 
 void Form::beSigned(Bureaucrat b)
 {
-    try{
-        if (b.getGrade() > _signGrade)
-            throw(GradeTooLowException());
-        _isSigned = 1;
-        std::cout << GREEN << b.getName() << " signed " << _name << RESET << std::endl;
-    }catch(const std::exception & e){
-          std::cout << RED << b.getName() << " couldn't sign " << _name << " because " << e.what() << RESET << std::endl;
-    }
+    if (b.getGrade() > _signGrade)
+        throw(Bureaucrat::GradeTooLowException());
+    _isSigned = 1;
+    std::cout << GREEN << b.getName() << " signed " << _name << RESET << std::endl;
 }

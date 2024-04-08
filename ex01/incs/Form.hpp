@@ -4,6 +4,8 @@
 #include <iostream>
 #include "../incs/Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
     private:

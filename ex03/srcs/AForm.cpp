@@ -89,6 +89,7 @@ void AForm::checkExecRequirements(Bureaucrat const & executor) const
     std::cout << "check is ok\n";
 }
 
-// void AForm::execute(Bureaucrat const & executor) const
-// { 
-// }
+const char *AForm::NotvalidArgument::what() const throw()
+{
+    return "not a valid argument";
+}

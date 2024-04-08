@@ -6,7 +6,7 @@
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 11:26:50 by anouri            #+#    #+#             */
-/*   Updated: 2024/03/19 16:01:54 by anouri           ###   ########.fr       */
+/*   Updated: 2024/04/08 13:35:37 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,9 @@ int main()
     std::cout << congé << std::endl;
     std::cout << YELLOW << "\n*****************beSIgned*****************\n" << RESET << std::endl;
 
-    congé.beSigned(Archiviste);
-    congé.beSigned(PDG);
-
+    // congé.beSigned(Archiviste);
+    // congé.beSigned(PDG);
+    Archiviste.signForm(congé);
+    PDG.signForm(congé);
     return(0);
 }
