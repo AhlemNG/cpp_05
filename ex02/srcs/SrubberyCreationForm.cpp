@@ -1,6 +1,6 @@
 #include "../incs/ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm()
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm("ShrubberyCreationForm", 0, 145, 137)
 {
     std::cout << BLUE << "ShrubberyCreationForm  default constructor called for target " << _target << std::endl;
 }

@@ -1,5 +1,10 @@
 #include "../incs/RobotomyRequestForm.hpp"
-
+#include <time.h>
+#include <stdlib.h>
+RobotomyRequestForm::RobotomyRequestForm(/* args */): AForm("RobotomyRequestForm", 0, 72, 45)
+{
+    // std::cout << BLUE << "RobotomyRequestForm constructor called " << RESET << std::endl;
+}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("RobotomyRequestForm", 0, 72, 45)
 {
@@ -23,11 +28,6 @@ RobotomyRequestForm & RobotomyRequestForm::operator=( RobotomyRequestForm const 
     return (*this);
 }
 
-RobotomyRequestForm::RobotomyRequestForm(/* args */): AForm()
-{
-    // std::cout << BLUE << "RobotomyRequestForm constructor called " << RESET << std::endl;
-}
-
 RobotomyRequestForm::~RobotomyRequestForm()
 {
     std::cout << BLUE << "RobotomyRequestForm destructor called " << RESET << std::endl;
@@ -40,6 +40,14 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
     else if (executor.getGrade() > _execGrade)
         throw(Bureaucrat::GradeTooLowException());
     else 
-    std::cout << GREEN <<"some drilling noise" << RESET <<std::endl;
-    std::cout << GREEN << _target << " has been robotomized successfully 50% of the time"<< RESET << std::endl;
+    {
+        std::cout << GREEN <<"some drilling noise" << RESET <<std::endl;
+        srand(time(NULL));
+        int value = rand() % 2;
+        if (value == 1)
+            std::cout << GREEN << _target << " has been robotomized successfully"<< RESET << std::endl;
+        else
+            std::cout << RED << _target << ": Robotomy has failed"<< RESET << std::endl;
+    
+    }
 }

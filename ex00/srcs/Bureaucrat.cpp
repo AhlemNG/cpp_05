@@ -6,7 +6,7 @@
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 11:26:55 by anouri            #+#    #+#             */
-/*   Updated: 2024/04/08 13:16:24 by anouri           ###   ########.fr       */
+/*   Updated: 2024/04/25 17:03:58 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,12 @@ Bureaucrat::~Bureaucrat()
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
 {
-    std::cout << BLUE << "Bureaucrat parametric constructor called for : " << this->_name << RESET << std::endl;
-    try{
-        if (grade > 150)
-            throw(Bureaucrat::GradeTooLowException());
-        if (grade < 1)
-            throw(Bureaucrat::GradeTooHighException());
+    if (grade > 150)
+        throw(Bureaucrat::GradeTooLowException());
+    if (grade < 1)
+        throw(Bureaucrat::GradeTooHighException());
     _grade = grade;
-    }catch(const std::exception & e){
-        std::cerr << "Exception: " << e.what() << '\n';
-    }
+    std::cout << BLUE << "Bureaucrat parametric constructor called for : " << this->_name << RESET << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &src): _name(src._name), _grade(src._grade)
@@ -59,12 +55,12 @@ int Bureaucrat::getGrade() const
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-     return("Grade too high");
+     return("Bureaucrat::Grade too high");
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-     return("Grade too low");
+     return("Bureaucrat::Grade too low");
 }
 
 void Bureaucrat::promote()
@@ -74,7 +70,7 @@ void Bureaucrat::promote()
             throw(Bureaucrat::GradeTooHighException());
         this->_grade--;
     }catch(const std::exception &e){
-        std::cout << "Exception: " << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
 }
 
@@ -85,7 +81,7 @@ void Bureaucrat::demote()
             throw(Bureaucrat::GradeTooLowException());
         this->_grade++;
     }catch(const std::exception &e){
-        std::cout << "Exception: " << e.what()<< std::endl;
+        std::cout << e.what()<< std::endl;
     }
 }
 

@@ -1,6 +1,6 @@
 #include "../incs/Form.hpp"
 
-Form::Form() : _name("no_name"), _isSigned(0), _signGrade(0), _execGrade(0)
+Form::Form() : _name("no_name"), _isSigned(0), _signGrade(1), _execGrade(1)
 {
     std::cout << LBLUE << "Form default constructor called for: " << _name << std::endl;
 }
@@ -10,16 +10,16 @@ Form::Form(const std::string name, bool isSigned, const int signGrade, const int
    std::cout << LBLUE << "Form parametric constructor called for: " << _name << std::endl;
     try{
         if (signGrade < 1)
-            throw(Bureaucrat::GradeTooHighException());
+            throw(Form::GradeTooHighException());
         else if (signGrade > 150)
-            throw(Bureaucrat::GradeTooLowException());
+            throw(Form::GradeTooLowException());
         if (execGrade < 1)
-            throw(Bureaucrat::GradeTooHighException());
+            throw(Form::GradeTooHighException());
         else if (execGrade > 150)
-            throw(Bureaucrat::GradeTooLowException());
+            throw(Form::GradeTooLowException());
     }catch(const std::exception &e)
     {
-        std::cout << RED << "EXCEPTION: " << e.what() << RESET << std::endl;
+        std::cout << RED << e.what() << RESET << std::endl;
     }
 }
 Form::Form(Form const &src): _name(src._name), _isSigned(src._isSigned), _signGrade(src._signGrade), _execGrade(src._execGrade)
@@ -41,6 +41,16 @@ Form & Form::operator=(Form const &rhs)
         // _execGrade = rhs._execGrade;
     }
     return (*this);
+}
+
+const char *Form::GradeTooHighException::what() const throw()
+{
+    return("Form::Grade too high");
+}
+
+const char *Form::GradeTooLowException::what() const throw()
+{
+    return("Form::Grade too low");
 }
 
 std::string const Form::getName() const

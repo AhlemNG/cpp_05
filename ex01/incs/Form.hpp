@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "../incs/Bureaucrat.hpp"
+#include <exception>
 
 class Bureaucrat;
 
@@ -20,7 +21,18 @@ class Form
         Form(Form const &src); //copy constructor
         ~Form(); //destructor
         Form &operator=(Form const &rhs); //assignation operator
-
+        class GradeTooHighException : public std::exception
+        {
+            public:
+            using exception::what; //is this allowed?
+            const char *what() const throw();
+        };
+        class GradeTooLowException : public std::exception
+        {
+            public:
+            using exception::what; //is this allowed?
+            const char *what()const throw();
+        };
         const std::string getName() const;
         bool getState() const;
         int getSignGrade() const;

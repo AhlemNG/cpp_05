@@ -21,6 +21,18 @@ class AForm
         AForm(AForm const &src); //copy constructor
         virtual ~AForm(); //destructor
         AForm &operator=(AForm const &rhs); //assignation operator
+        class GradeTooHighException : public std::exception
+        {
+            public:
+            using exception::what; //is this allowed?
+            const char *what() const throw();
+        };
+        class GradeTooLowException : public std::exception
+        {
+            public:
+            using exception::what; //is this allowed?
+            const char *what()const throw();
+        };
         const std::string getName() const;
         bool getState() const;
         int getSignGrade() const;

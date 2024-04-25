@@ -1,5 +1,10 @@
 #include "../incs/PresidentialPardonForm.hpp"
 
+PresidentialPardonForm::PresidentialPardonForm(/* args */): AForm("PresidentialPardonForm", 0, 25, 5)
+{
+    // std::cout << BLUE << "PresidentialPardonForm constructor called " << RESET << std::endl;
+}
+
 PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm("PresidentialPardonForm", 0, 25, 5)
 {
     std::cout << BLUE << "PresidentialPardonForm parametric constructor called " << RESET << std::endl;
@@ -20,10 +25,6 @@ PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonFor
         this->_isSigned = rhs.getState();
     }
     return (*this);
-}
-PresidentialPardonForm::PresidentialPardonForm(/* args */): AForm()
-{
-    // std::cout << BLUE << "PresidentialPardonForm constructor called " << RESET << std::endl;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()

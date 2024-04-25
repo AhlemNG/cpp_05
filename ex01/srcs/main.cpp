@@ -6,7 +6,7 @@
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 11:26:50 by anouri            #+#    #+#             */
-/*   Updated: 2024/04/08 13:35:37 by anouri           ###   ########.fr       */
+/*   Updated: 2024/04/25 17:38:18 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,39 +17,6 @@
 
 int main()
 {
-//     std::cout << YELLOW << "*****************CREATE INVALID****************" << RESET << std::endl;
-    
-//     Bureaucrat C("invalid", 170);
-//     std::cout <<  "PDG : \n" << C << std::endl;
-//     Bureaucrat B("DGA", -1);
-//     std::cout <<  "DGA : \n" << B << std::endl;
-
-//     std::cout << YELLOW << "*****************PROMOTE DEMOTE*****************" << RESET << std::endl;
-    
-//     Bureaucrat A("PDG", 1);
-//     std::cout << GRAY << "PDG : \n" << A << std::endl;
-//     A.promote();
-//     std::cout <<  "PDG : \n" << A << std::endl;
-
-//     A.demote();
-//     std::cout <<  "PDG : \n" << A << std::endl;
-
-//     A.promote();
-//     std::cout <<  "PDG : \n" << A << std::endl;
-
-//     std::cout << YELLOW << "*****************COPY CONSTRUCTOR*****************" << RESET << std::endl;
-//     Bureaucrat E(A);
-//     std::cout <<  "copy : \n" << E << std::endl;
-//     E.demote();
-//     std::cout <<  "copy : \n" << E << std::endl;
-//     std::cout <<  "PDG : \n" << A << std::endl;
-
-//     std::cout << YELLOW << "*****************ASSIGNMENT OPERATOR*****************" << RESET << std::endl;
-//     Bureaucrat F("assistante de direction", 15);
-//     E = F;
-//     std::cout <<  "E : \n" << E << std::endl;
-//     std::cout <<  "F : \n" << F << std::endl;
-
     Bureaucrat PDG("PDG", 1);
     Bureaucrat DRH("DRH", 4);
     Bureaucrat Archiviste("Archiviste", 10);
@@ -59,15 +26,17 @@ int main()
     Form attestationTravail("Attestation de travail",0, 4, 170);
 
     std::cout << YELLOW << "\n*****************CONSTRUCTION*****************\n" << RESET << std::endl;
-    Form congé("congé",0, 5, 5);
-    Form congè(congé);
-    congè = congé;
-    std::cout << congé << std::endl;
+    
+    Form vacation("congé",0, 5, 5);
+    Form vacation1(vacation);
+    std::cout << vacation << std::endl;
+    std::cout << vacation1 << std::endl;
     std::cout << YELLOW << "\n*****************beSIgned*****************\n" << RESET << std::endl;
-
-    // congé.beSigned(Archiviste);
-    // congé.beSigned(PDG);
-    Archiviste.signForm(congé);
-    PDG.signForm(congé);
+    
+    Archiviste.signForm(vacation);
+    PDG.signForm(vacation);
+    std::cout << vacation << std::endl;
+    std::cout << vacation1 << std::endl;
+    DRH.signForm(vacation1);
     return(0);
 }
