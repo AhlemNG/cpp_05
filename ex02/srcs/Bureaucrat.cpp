@@ -6,7 +6,7 @@
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 11:26:55 by anouri            #+#    #+#             */
-/*   Updated: 2024/04/25 17:54:34 by anouri           ###   ########.fr       */
+/*   Updated: 2024/04/30 12:52:12 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Bureaucrat::Bureaucrat() : _name("no_name"), _grade(1)
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << BLUE << "Bureaucrat destructor called" << RESET << std::endl;
+    std::cout << YELLOW << "Bureaucrat destructor called" << RESET << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)

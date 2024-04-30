@@ -6,7 +6,7 @@
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 10:03:28 by anouri            #+#    #+#             */
-/*   Updated: 2024/04/30 11:01:53 by anouri           ###   ########.fr       */
+/*   Updated: 2024/04/30 12:37:41 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ class AForm
             using exception::what; //is this allowed?
             const char *what() const throw();
         };
-        void beSigned(Bureaucrat b);
+        void beSigned(Bureaucrat &b);
         virtual void execute(Bureaucrat const & executor) const = 0;
         void checkExecRequirements(Bureaucrat const & executor) const;
 };

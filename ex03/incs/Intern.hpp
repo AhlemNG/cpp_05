@@ -6,7 +6,7 @@
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 16:33:01 by anouri            #+#    #+#             */
-/*   Updated: 2024/04/08 16:58:02 by anouri           ###   ########.fr       */
+/*   Updated: 2024/04/30 12:40:56 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ class Intern
         Intern &operator=(const Intern &rhs);
         ~Intern();
 
+      class NotAvalidFormName : public std::exception
+        {
+            public:
+            using exception::what; //is this allowed?
+            const char *what() const throw();
+        };
         AForm *makeForm(std::string const name, std::string const target);
 };
 

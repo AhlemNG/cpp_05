@@ -6,7 +6,7 @@
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 09:49:14 by anouri            #+#    #+#             */
-/*   Updated: 2024/04/30 09:49:16 by anouri           ###   ########.fr       */
+/*   Updated: 2024/04/30 12:52:04 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ AForm::AForm(AForm const &src): _name(src._name), _isSigned(src._isSigned), _sig
 }
 AForm::~AForm()
 {
-    std::cout << LBLUE << "AForm destructor called for: " << _name << std::endl;
+    std::cout << YELLOW << "AForm destructor called for: " << _name << RESET << std::endl;
 }
 AForm & AForm::operator=(AForm const &rhs)
 {
@@ -94,7 +94,7 @@ std::ostream & operator<<(std::ostream & o, AForm const &rhs)
 }
 
 
-void AForm::beSigned(Bureaucrat b)
+void AForm::beSigned(Bureaucrat &b)
 {
     if (b.getGrade() > _signGrade)
         throw(Bureaucrat::GradeTooLowException());

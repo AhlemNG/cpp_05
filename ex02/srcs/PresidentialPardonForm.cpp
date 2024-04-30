@@ -6,7 +6,7 @@
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 09:49:29 by anouri            #+#    #+#             */
-/*   Updated: 2024/04/30 09:49:31 by anouri           ###   ########.fr       */
+/*   Updated: 2024/04/30 13:07:40 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,18 @@ PresidentialPardonForm::PresidentialPardonForm(/* args */): AForm("PresidentialP
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm("PresidentialPardonForm", 0, 25, 5)
 {
-    std::cout << BLUE << "PresidentialPardonForm parametric constructor called " << RESET << std::endl;
     _target = target;
+    std::cout << BLUE << "PresidentialPardonForm parametric constructor called for :"  << _target << RESET << std::endl;
 
 }
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & src): AForm(src)
 {
- std::cout << BLUE << "PresidentialPardonForm copy constructor called " << RESET << std::endl;
     _target = src._target;
+    std::cout << BLUE << "PresidentialPardonForm copy constructor called " << RESET << std::endl;
 }
 PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonForm const &rhs)
 {
-     std::cout << BLUE << " PresidentialPardonForm copy assignation operator called " << RESET << std::endl;
+    std::cout << BLUE << " PresidentialPardonForm copy assignation operator called " << RESET << std::endl;
     if (this != &rhs)
     {
         _target = rhs._target;
@@ -41,7 +41,7 @@ PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonFor
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-    std::cout << BLUE << "PresidentialPardonForm destructor called " << RESET << std::endl;
+    std::cout << YELLOW << "PresidentialPardonForm destructor called " << RESET << std::endl;
 }
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const

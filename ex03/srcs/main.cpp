@@ -6,7 +6,7 @@
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 11:26:50 by anouri            #+#    #+#             */
-/*   Updated: 2024/04/30 11:02:08 by anouri           ###   ########.fr       */
+/*   Updated: 2024/04/30 12:49:07 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,16 @@
 int main()
 {
    
-    Intern someRandomIntern;
-    AForm* rrf;
-    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-    delete rrf;  
+    try{
+        Intern someRandomIntern;
+        AForm* rrf;
+        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        Bureaucrat PDG("PDG", 1);
+        PDG.signForm(*rrf);
+        delete rrf;  
+    }catch(const std::exception &e)
+    {
+        std::cout << RED << e.what() << RESET << std::endl;
+    }
     return(0);
 }

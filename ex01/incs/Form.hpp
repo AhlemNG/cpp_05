@@ -6,7 +6,7 @@
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 09:47:56 by anouri            #+#    #+#             */
-/*   Updated: 2024/04/30 09:48:02 by anouri           ###   ########.fr       */
+/*   Updated: 2024/04/30 12:34:30 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ class Form
         bool getState() const;
         int getSignGrade() const;
         int getExecGrade() const;
-        void beSigned(Bureaucrat b);
+        void beSigned(Bureaucrat &b);
 };
 
 std::ostream &operator<<(std::ostream & o, Form const &rhs);

@@ -6,7 +6,7 @@
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 09:49:39 by anouri            #+#    #+#             */
-/*   Updated: 2024/04/30 09:56:29 by anouri           ###   ########.fr       */
+/*   Updated: 2024/04/30 13:08:45 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ RobotomyRequestForm::RobotomyRequestForm(/* args */): AForm("RobotomyRequestForm
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("RobotomyRequestForm", 0, 72, 45)
 {
-    std::cout << BLUE << "RobotomyRequestForm parametric constructor called " << RESET << std::endl;
     _target = target;
+    std::cout << BLUE << "RobotomyRequestForm parametric constructor called for: " << _target << RESET << std::endl;
 }
 RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const &src): AForm(src)
 {
-    std::cout << BLUE << "RobotomyRequestForm copy constructor called " << RESET << std::endl;
     _target = src._target;
+    std::cout << BLUE << "RobotomyRequestForm copy constructor called " << RESET << std::endl;
 }
 
 RobotomyRequestForm & RobotomyRequestForm::operator=( RobotomyRequestForm const &rhs)
@@ -43,7 +43,7 @@ RobotomyRequestForm & RobotomyRequestForm::operator=( RobotomyRequestForm const 
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-    std::cout << BLUE << "RobotomyRequestForm destructor called " << RESET << std::endl;
+    std::cout << YELLOW << "RobotomyRequestForm destructor called  for : " << _name << RESET << std::endl;
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const

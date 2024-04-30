@@ -6,7 +6,7 @@
 /*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 09:48:13 by anouri            #+#    #+#             */
-/*   Updated: 2024/04/30 09:48:15 by anouri           ###   ########.fr       */
+/*   Updated: 2024/04/30 12:51:38 by anouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Form::Form(Form const &src): _name(src._name), _isSigned(src._isSigned), _signGr
 }
 Form::~Form()
 {
-    std::cout << LBLUE << "Form destructor called for: " << _name << std::endl;
+    std::cout  << YELLOW  << "Form destructor called for: " << _name << RESET << std::endl;
 }
 Form & Form::operator=(Form const &rhs)
 {
