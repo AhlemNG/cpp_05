@@ -1,4 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/30 09:49:29 by anouri            #+#    #+#             */
+/*   Updated: 2024/04/30 09:56:05 by anouri           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../incs/PresidentialPardonForm.hpp"
+
+PresidentialPardonForm::PresidentialPardonForm(/* args */): AForm("PresidentialPardonForm", 0, 25, 5)
+{
+    // std::cout << BLUE << "PresidentialPardonForm constructor called " << RESET << std::endl;
+}
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm("PresidentialPardonForm", 0, 25, 5)
 {
@@ -20,10 +37,6 @@ PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonFor
         this->_isSigned = rhs.getState();
     }
     return (*this);
-}
-PresidentialPardonForm::PresidentialPardonForm(/* args */): AForm()
-{
-    // std::cout << BLUE << "PresidentialPardonForm constructor called " << RESET << std::endl;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()

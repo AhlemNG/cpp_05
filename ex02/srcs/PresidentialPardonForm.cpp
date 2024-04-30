@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/30 09:49:29 by anouri            #+#    #+#             */
+/*   Updated: 2024/04/30 09:49:31 by anouri           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../incs/PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(/* args */): AForm("PresidentialPardonForm", 0, 25, 5)

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/30 10:03:28 by anouri            #+#    #+#             */
+/*   Updated: 2024/04/30 11:01:53 by anouri           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef AFORM_HPP
 #define AFORM_HPP
 
@@ -21,6 +33,18 @@ class AForm
         AForm(AForm const &src); //copy constructor
         virtual ~AForm(); //destructor
         AForm &operator=(AForm const &rhs); //assignation operator
+        class GradeTooHighException : public std::exception
+        {
+            public:
+            using exception::what; //is this allowed?
+            const char *what() const throw();
+        };
+        class GradeTooLowException : public std::exception
+        {
+            public:
+            using exception::what; //is this allowed?
+            const char *what()const throw();
+        };
         const std::string getName() const;
         bool getState() const;
         int getSignGrade() const;
@@ -29,12 +53,6 @@ class AForm
         {
         public:
             using exception::what; //is this allowed?
-            const char *what() const throw();
-        };
-        class NotvalidArgument : public std::exception
-        {
-            public:
-            using exception::what;
             const char *what() const throw();
         };
         void beSigned(Bureaucrat b);

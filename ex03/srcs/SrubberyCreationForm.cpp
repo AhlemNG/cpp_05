@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   SrubberyCreationForm.cpp                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/30 09:49:46 by anouri            #+#    #+#             */
+/*   Updated: 2024/04/30 09:56:44 by anouri           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../incs/ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm()
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm("ShrubberyCreationForm", 0, 145, 137)
 {
     std::cout << BLUE << "ShrubberyCreationForm  default constructor called for target " << _target << std::endl;
 }
@@ -44,7 +56,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
         std::ofstream file((_target + "_shrubbery").c_str());
         if(!file.is_open())
         {
-            std::cerr << "error file" << std::endl;
+            std::cout << "error file" << std::endl;
         }
         file << "      _-_" << std::endl;
         file << "  /~~      ~~\\" << std::endl;

@@ -1,6 +1,7 @@
 #include "../incs/Intern.hpp"
 #include "../incs/Colors.hpp"
 
+#include <string>
 Intern::Intern(/* args */)
 {
     std::cout << "Default constructor called for Intern" << std::endl;
@@ -8,7 +9,7 @@ Intern::Intern(/* args */)
 
 Intern::~Intern()
 {
-    // std::cout << "destructor called for Intern" << std::endl;
+    std::cout << "destructor called for Intern" << std::endl;
 }
 
 Intern::Intern(const Intern &src)
@@ -24,44 +25,27 @@ Intern &Intern::operator=(const Intern &rhs)
 
 AForm *Intern::makeForm(std::string const name, std::string const target)
 {
-    switch (name[0])
+    std::string forms[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
+    for(int i = 0; i < 3; i++)
     {
-    case 'S':
-    try{
-
-        if (name.compare("ShrubberyCreationForm"))
-            throw(AForm::NotvalidArgument());
-        std::cout << "Intern creates" << name << RESET << std::endl;
-        return(new ShrubberyCreationForm(target));
-    }catch(const std::exception &e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
-    case 'R':
-        try
+        if (name == forms[i])
         {
-            if (name.compare("RobotomyReqUestForm"))
-                throw(AForm::NotvalidArgument());
-            std::cout << "Intern creates" << name << RESET << std::endl;
-            return(new RobotomyRequestForm(target));
-
-        }catch(const std::exception &e)
-        {
-        std::cerr << e.what() << std::endl;
+            switch (i)
+            {
+                case 0:
+                    std::cout << "Intern creates " << name << RESET << std::endl;
+                    return(new ShrubberyCreationForm(target));
+                case 1:
+                        std::cout << "Intern creates " << name << RESET << std::endl;
+                        return(new RobotomyRequestForm(target));
+                case 2:
+                        std::cout << "Intern creates " << name << RESET << std::endl;
+                        return(new PresidentialPardonForm(target));
+                default:
+                    break;
+            }
         }
-    case 'P':
-        try
-        {
-            if (name.compare("PresidentialPardonForm"))
-                throw(AForm::NotvalidArgument());
-            std::cout << "Intern creates" << name << RESET << std::endl;
-            return(new PresidentialPardonForm(target));
-        }catch(const std::exception& e)
-        {
-            std::cerr << e.what() << std::endl;
-        }    
-    default:
-        break;
     }
+    std::cout << "Not a valid form name" << std::endl;
     return (NULL);
 }

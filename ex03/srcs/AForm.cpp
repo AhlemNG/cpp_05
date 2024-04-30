@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anouri <anouri@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/30 09:49:14 by anouri            #+#    #+#             */
+/*   Updated: 2024/04/30 11:01:46 by anouri           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../incs/AForm.hpp"
 
-AForm::AForm() : _name("no_name"), _isSigned(0), _signGrade(0), _execGrade(0)
+AForm::AForm() : _name("no_name"), _isSigned(0), _signGrade(1), _execGrade(1)
 {
     std::cout << LBLUE << "AForm default constructor called for: " << _name << std::endl;
 }
@@ -41,6 +53,16 @@ AForm & AForm::operator=(AForm const &rhs)
         // _execGrade = rhs._execGrade();
     }
     return (*this);
+}
+
+const char *AForm::GradeTooHighException::what() const throw()
+{
+    return("AForm::Grade too high");
+}
+
+const char *AForm::GradeTooLowException::what() const throw()
+{
+    return("AForm::Grade too low");
 }
 
 std::string const AForm::getName() const
@@ -87,9 +109,4 @@ void AForm::checkExecRequirements(Bureaucrat const & executor) const
     if (executor.getGrade() > _execGrade)
         throw(Bureaucrat::GradeTooLowException());
     std::cout << "check is ok\n";
-}
-
-const char *AForm::NotvalidArgument::what() const throw()
-{
-    return "not a valid argument";
 }
