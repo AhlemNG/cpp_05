@@ -48,6 +48,5 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
             std::cout << GREEN << _target << " has been robotomized successfully"<< RESET << std::endl;
         else
             std::cout << RED << _target << ": Robotomy has failed"<< RESET << std::endl;
-    
     }
 }
